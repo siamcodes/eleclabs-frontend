@@ -17,6 +17,16 @@ import {
     LineIcon,
     EmailShareButton,
     EmailIcon,
+    FacebookMessengerShareButton,
+    FacebookMessengerIcon,
+    TwitterShareButton,
+    TwitterIcon,
+    LinkedinShareButton,
+    LinkedinIcon,
+    PinterestShareButton,
+    PinterestIcon,
+    TelegramShareButton,
+    TelegramIcon,
 } from "react-share";
 
 const SingleBlog = ({ blog, query }) => {
@@ -135,11 +145,11 @@ const SingleBlog = ({ blog, query }) => {
                                     {showBlogCategories(blog)}
                                     {showBlogTags(blog)}
                                     <hr />
-                                    <FacebookShareButton url={shareUrl} >
+                                    <FacebookShareButton url={shareUrl} quote={blog.title} className="btn" >
                                         <FacebookIcon size={32} round />
                                     </FacebookShareButton>
                                     <FacebookShareCount url={shareUrl}>
-                                        {shareCount => <span className="btn btn-primary">{shareCount}</span>}
+                                        {shareCount => <span className="btn">{shareCount}</span>}
                                     </FacebookShareCount>
                                     <LineShareButton url={shareUrl}>
                                         <LineIcon size={32} round />
@@ -147,6 +157,27 @@ const SingleBlog = ({ blog, query }) => {
                                     <EmailShareButton url={shareUrl}>
                                         <EmailIcon size={32} round />
                                     </EmailShareButton>
+                                    <FacebookMessengerShareButton url={shareUrl} appId={`${FB_APP_ID}`} className="btn"  >
+                                        <FacebookMessengerIcon size={32} round />
+                                    </FacebookMessengerShareButton>
+                                    <TwitterShareButton url={shareUrl} title={blog.title} className="btn"  >
+                                        <TwitterIcon size={32} round />
+                                    </TwitterShareButton>
+                                    <TelegramShareButton url={shareUrl} title={blog.title} className="btn"  >
+                                        <TelegramIcon size={32} round />
+                                    </TelegramShareButton>
+                                    <LinkedinShareButton url={shareUrl} className="btn">
+                                        <LinkedinIcon size={32} round />
+                                    </LinkedinShareButton>
+
+                                    <PinterestShareButton
+                                        url={String(window.location)}
+                                        media={`${String(window.location)}/${API}/blog/photo/${blog.slug}`}
+                                        className="btn"
+                                    >
+                                        <PinterestIcon size={32} round />
+                                    </PinterestShareButton>
+                                    <PinterestShareCount url={shareUrl} className="btn" />
                                 </div>
                             </div>
                         </div>
