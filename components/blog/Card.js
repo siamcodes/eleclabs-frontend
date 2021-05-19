@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
-import { API, DOMAIN } from '../../config';
+import { API, DOMAIN, FB_APP_ID } from '../../config';
 import {
     FacebookShareButton,
     FacebookShareCount,
@@ -121,7 +121,7 @@ const Card = ({ blog, router }) => {
                             <PinterestShareButton url={shareUrl} media={`${API}/blog/photo/${blog.slug}`} >
                                 <PinterestIcon size={40} round />
                             </PinterestShareButton>
-                            <PinterestShareCount url={shareUrl} />
+                            <PinterestShareCount url={shareUrl} className="btn btn-light" />
                         </section>
                     </div>
                 </div>

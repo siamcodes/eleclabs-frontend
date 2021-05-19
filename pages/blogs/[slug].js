@@ -31,7 +31,9 @@ import {
 } from "react-share";
 
 const SingleBlog = ({ blog, query }) => {
+
     const shareUrl = `${DOMAIN}/blogs/${query.slug}`; //
+    
     const [related, setRelated] = useState([]);
 
     const loadRelated = () => {
