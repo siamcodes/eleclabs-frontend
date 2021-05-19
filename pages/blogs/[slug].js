@@ -9,7 +9,19 @@ import moment from 'moment';
 import SmallCard from '../../components/blog/SmallCard';
 import DisqusThread from '../../components/DisqusThread';
 
+import {
+    FacebookShareButton,
+    FacebookShareCount,
+    FacebookIcon,
+    LineShareButton,
+    LineIcon,
+    EmailShareButton,
+    EmailIcon,
+} from "react-share";
+
 const SingleBlog = ({ blog, query }) => {
+
+    const shareUrl = `${DOMAIN}/blogs/${blog.slug}`;
     const [related, setRelated] = useState([]);
 
     const loadRelated = () => {
@@ -123,6 +135,19 @@ const SingleBlog = ({ blog, query }) => {
                                 <div className="col-md-4">
                                     {showBlogCategories(blog)}
                                     {showBlogTags(blog)}
+                                    <hr />
+                                    <FacebookShareButton url={shareUrl} >
+                                        <FacebookIcon size={32} round />
+                                    </FacebookShareButton>
+                                    <FacebookShareCount url={shareUrl}>
+                                        {shareCount => <span className="btn btn-primary">{shareCount}</span>}
+                                    </FacebookShareCount>
+                                    <LineShareButton url={shareUrl}>
+                                        <LineIcon size={32} round />
+                                    </LineShareButton>
+                                    <EmailShareButton url={shareUrl}>
+                                        <EmailIcon size={32} round />
+                                    </EmailShareButton>
                                 </div>
                             </div>
                         </div>

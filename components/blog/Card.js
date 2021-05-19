@@ -11,8 +11,8 @@ import {
     LineIcon,
     EmailShareButton,
     EmailIcon,
-} from "react-share";
-import { withRouter } from 'next/router'; //
+} from "react-share"; 
+import { withRouter } from 'next/router'; 
 
 const Card = ({ blog, router }) => {
 
@@ -84,16 +84,16 @@ const Card = ({ blog, router }) => {
                                 <a className="btn btn-outline-info pt-2">Read more</a>
                             </Link> {' '}
                             <FacebookShareButton url={shareUrl} >
-                                <FacebookIcon size={32} round={true} />
+                                <FacebookIcon size={32} round />
                             </FacebookShareButton>
                             <FacebookShareCount url={shareUrl}>
                                 {shareCount => <span className="btn btn-primary">{shareCount}</span>}
                             </FacebookShareCount>
                             <LineShareButton url={shareUrl}>
-                                <LineIcon size={32} round={true} />
+                                <LineIcon size={32} round />
                             </LineShareButton>
                             <EmailShareButton url={shareUrl}>
-                                <EmailIcon size={32} round={true} />
+                                <EmailIcon size={32} round />
                             </EmailShareButton>
                         </section>
                     </div>
