@@ -15,6 +15,9 @@ import {
 import { withRouter } from 'next/router'; //
 
 const Card = ({ blog, router }) => {
+
+    const shareUrl = `/blogs/${blog.slug}`;
+
     const showBlogCategories = blog =>
         blog.categories.map((c, i) => (
             <>
@@ -33,7 +36,7 @@ const Card = ({ blog, router }) => {
             </>
         ));
     
-    const shareUrl = `${DOMAIN}/blogs/${blog.slug}`;
+    
 
     return (
         <div className=" pb-4">
