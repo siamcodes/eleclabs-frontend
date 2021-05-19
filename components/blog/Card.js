@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
@@ -31,6 +32,8 @@ const Card = ({ blog, router }) => {
                 </Link> {' '}
             </>
         ));
+    
+    const shareUrl = `${DOMAIN}/blogs/${blog.slug}`;
 
     return (
         <div className=" pb-4">
@@ -72,16 +75,16 @@ const Card = ({ blog, router }) => {
                         <Link href={`/blogs/${blog.slug}`}>
                             <a className="btn btn-outline-info pt-2">Read more</a>
                         </Link> {' '}
-                        <FacebookShareButton url={`${DOMAIN}/blogs/${blog.slug}`} >
+                        <FacebookShareButton url={shareUrl} >
                             <FacebookIcon size={32} round={true} />
                         </FacebookShareButton>
-                        <FacebookShareCount url={`${DOMAIN}/blogs/${blog.slug}`}>
+                        <FacebookShareCount url={shareUrl}>
                             {shareCount => <span className="btn btn-primary">{shareCount}</span>}
                         </FacebookShareCount>
-                        <LineShareButton url={`${DOMAIN}/blogs/${blog.slug}`}>
+                        <LineShareButton url={shareUrl}>
                             <LineIcon size={32} round={true} />
                         </LineShareButton>
-                        <EmailShareButton url={`${DOMAIN}/blogs/${blog.slug}`}>
+                        <EmailShareButton url={shareUrl}>
                             <EmailIcon size={32} round={true} />
                         </EmailShareButton>
                     </section>
