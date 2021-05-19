@@ -1,9 +1,19 @@
 import Link from 'next/link';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
-import { API } from '../../config';
+import { API, DOMAIN } from '../../config';
+import {
+    FacebookShareButton,
+    FacebookShareCount,
+    FacebookIcon,
+    LineShareButton,
+    LineIcon,
+    EmailShareButton,
+    EmailIcon,
+} from "react-share";
+import { withRouter } from 'next/router'; //
 
-const Card = ({ blog }) => {
+const Card = ({ blog, router }) => {
     const showBlogCategories = blog =>
         blog.categories.map((c, i) => (
             <>
@@ -61,7 +71,19 @@ const Card = ({ blog }) => {
                         <div className="pb-2">{renderHTML(blog.excerpt)}</div>
                         <Link href={`/blogs/${blog.slug}`}>
                             <a className="btn btn-outline-info pt-2">Read more</a>
-                        </Link>
+                        </Link> {' '}
+                        <FacebookShareButton url={`${DOMAIN}/blogs/${blog.slug}`} >
+                            <FacebookIcon size={32} round={true} />
+                        </FacebookShareButton>
+                        <FacebookShareCount url={`${DOMAIN}/blogs/${blog.slug}`}>
+                            {shareCount => <span className="btn btn-primary">{shareCount}</span>}
+                        </FacebookShareCount>
+                        <LineShareButton url={`${DOMAIN}/blogs/${blog.slug}`}>
+                            <LineIcon size={32} round={true} />
+                        </LineShareButton>
+                        <EmailShareButton url={`${DOMAIN}/blogs/${blog.slug}`}>
+                            <EmailIcon size={32} round={true} />
+                        </EmailShareButton>
                     </section>
                 </div>
             </div>
@@ -69,4 +91,4 @@ const Card = ({ blog }) => {
     );
 };
 
-export default Card;
+export default withRouter(Card);
