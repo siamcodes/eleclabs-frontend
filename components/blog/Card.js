@@ -11,8 +11,19 @@ import {
     LineIcon,
     EmailShareButton,
     EmailIcon,
-} from "react-share"; 
-import { withRouter } from 'next/router'; 
+    FacebookMessengerShareButton,
+    FacebookMessengerIcon,
+    TwitterShareButton,
+    TwitterIcon,
+    LinkedinShareButton,
+    LinkedinIcon,
+    PinterestShareButton,
+    PinterestIcon,
+    PinterestShareCount,
+    TelegramShareButton,
+    TelegramIcon,
+} from "react-share";
+import { withRouter } from 'next/router';
 
 const Card = ({ blog, router }) => {
 
@@ -83,18 +94,34 @@ const Card = ({ blog, router }) => {
                             <Link href={`/blogs/${blog.slug}`}>
                                 <a className="btn btn-outline-info pt-2">Read more</a>
                             </Link> {' '}
-                            <FacebookShareButton url={shareUrl} >
-                                <FacebookIcon size={32} round />
+                            <FacebookShareButton url={shareUrl} media={`${API}/blog/photo/${blog.slug}`} quote={blog.title} >
+                                <FacebookIcon size={40} round />
                             </FacebookShareButton>
                             <FacebookShareCount url={shareUrl}>
-                                {shareCount => <span className="btn btn-primary">{shareCount}</span>}
+                                {shareCount => <span>{shareCount}</span>}
                             </FacebookShareCount>
                             <LineShareButton url={shareUrl}>
-                                <LineIcon size={32} round />
+                                <LineIcon size={40} round />
                             </LineShareButton>
                             <EmailShareButton url={shareUrl}>
-                                <EmailIcon size={32} round />
+                                <EmailIcon size={40} round />
                             </EmailShareButton>
+                            <FacebookMessengerShareButton url={shareUrl} appId={`${FB_APP_ID}`}  >
+                                <FacebookMessengerIcon size={40} round />
+                            </FacebookMessengerShareButton>
+                            <TwitterShareButton url={shareUrl} title={blog.title} >
+                                <TwitterIcon size={40} round />
+                            </TwitterShareButton>
+                            <TelegramShareButton url={shareUrl} title={blog.title}  >
+                                <TelegramIcon size={40} round />
+                            </TelegramShareButton>
+                            <LinkedinShareButton url={shareUrl}>
+                                <LinkedinIcon size={40} round />
+                            </LinkedinShareButton>
+                            <PinterestShareButton url={shareUrl} media={`${API}/blog/photo/${blog.slug}`} >
+                                <PinterestIcon size={40} round />
+                            </PinterestShareButton>
+                            <PinterestShareCount url={shareUrl} />
                         </section>
                     </div>
                 </div>
