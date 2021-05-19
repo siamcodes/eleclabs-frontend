@@ -25,6 +25,7 @@ import {
     LinkedinIcon,
     PinterestShareButton,
     PinterestIcon,
+    PinterestShareCount,
     TelegramShareButton,
     TelegramIcon,
 } from "react-share";
@@ -145,39 +146,34 @@ const SingleBlog = ({ blog, query }) => {
                                     {showBlogCategories(blog)}
                                     {showBlogTags(blog)}
                                     <hr />
-                                    <FacebookShareButton url={shareUrl} quote={blog.title} className="btn" >
-                                        <FacebookIcon size={32} round />
+                                    <FacebookShareButton url={shareUrl} media={`${API}/blog/photo/${blog.slug}`} quote={blog.title} >
+                                        <FacebookIcon size={40} round />
                                     </FacebookShareButton>
                                     <FacebookShareCount url={shareUrl}>
-                                        {shareCount => <span className="btn">{shareCount}</span>}
+                                        {shareCount => <span>{shareCount}</span>}
                                     </FacebookShareCount>
                                     <LineShareButton url={shareUrl}>
-                                        <LineIcon size={32} round />
+                                        <LineIcon size={40} round />
                                     </LineShareButton>
                                     <EmailShareButton url={shareUrl}>
-                                        <EmailIcon size={32} round />
+                                        <EmailIcon size={40} round />
                                     </EmailShareButton>
-                                    <FacebookMessengerShareButton url={shareUrl} appId={`${FB_APP_ID}`} className="btn"  >
-                                        <FacebookMessengerIcon size={32} round />
+                                    <FacebookMessengerShareButton url={shareUrl} appId={`${FB_APP_ID}`}  >
+                                        <FacebookMessengerIcon size={40} round />
                                     </FacebookMessengerShareButton>
-                                    <TwitterShareButton url={shareUrl} title={blog.title} className="btn"  >
-                                        <TwitterIcon size={32} round />
+                                    <TwitterShareButton url={shareUrl} title={blog.title} >
+                                        <TwitterIcon size={40} round />
                                     </TwitterShareButton>
-                                    <TelegramShareButton url={shareUrl} title={blog.title} className="btn"  >
-                                        <TelegramIcon size={32} round />
+                                    <TelegramShareButton url={shareUrl} title={blog.title}  >
+                                        <TelegramIcon size={40} round />
                                     </TelegramShareButton>
-                                    <LinkedinShareButton url={shareUrl} className="btn">
-                                        <LinkedinIcon size={32} round />
+                                    <LinkedinShareButton url={shareUrl}>
+                                        <LinkedinIcon size={40} round />
                                     </LinkedinShareButton>
-
-                                    <PinterestShareButton
-                                        url={String(window.location)}
-                                        media={`${String(window.location)}/${API}/blog/photo/${blog.slug}`}
-                                        className="btn"
-                                    >
-                                        <PinterestIcon size={32} round />
+                                    <PinterestShareButton url={shareUrl} media={`${API}/blog/photo/${blog.slug}`} >
+                                        <PinterestIcon size={40} round />
                                     </PinterestShareButton>
-                                    <PinterestShareCount url={shareUrl} className="btn" />
+                                    <PinterestShareCount url={shareUrl} />
                                 </div>
                             </div>
                         </div>
