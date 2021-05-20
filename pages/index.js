@@ -163,10 +163,10 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                                 <FacebookMessengerShareButton url={shareUrl} appId={`${FB_APP_ID}`}  >
                                     <FacebookMessengerIcon size={40} round />
                                 </FacebookMessengerShareButton>
-                                <TwitterShareButton url={shareUrl} title={blog.title} >
+                                <TwitterShareButton url={shareUrl} title={APP_NAME} >
                                     <TwitterIcon size={40} round />
                                 </TwitterShareButton>
-                                <TelegramShareButton url={shareUrl} title={blog.title}  >
+                                <TelegramShareButton url={shareUrl} title={APP_NAME}  >
                                     <TelegramIcon size={40} round />
                                 </TelegramShareButton>
                                 <LinkedinShareButton url={shareUrl}>
