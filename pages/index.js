@@ -7,8 +7,30 @@ import { signout, isAuth } from '../actions/auth';
 import { listBlogsWithCategoriesAndTags } from '../actions/blog';
 import Card from '../components/blog/Card';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../config';
+import {
+    FacebookShareButton,
+    FacebookShareCount,
+    FacebookIcon,
+    LineShareButton,
+    LineIcon,
+    EmailShareButton,
+    EmailIcon,
+    FacebookMessengerShareButton,
+    FacebookMessengerIcon,
+    TwitterShareButton,
+    TwitterIcon,
+    LinkedinShareButton,
+    LinkedinIcon,
+    PinterestShareButton,
+    PinterestIcon,
+    PinterestShareCount,
+    TelegramShareButton,
+    TelegramIcon,
+} from "react-share";
 
 const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, router }) => {
+
+    const shareUrl = `${DOMAIN}`;
 
     const head = () => (
         <Head>
@@ -125,6 +147,35 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                                     <br />
                                     {showAllTags()}
                                 </div>
+                                <hr />
+                                <FacebookShareButton url={shareUrl} >
+                                    <FacebookIcon size={40} round />
+                                </FacebookShareButton>
+                                <FacebookShareCount url={shareUrl}>
+                                    {shareCount => <span>{shareCount}</span>}
+                                </FacebookShareCount>
+                                <LineShareButton url={shareUrl}>
+                                    <LineIcon size={40} round />
+                                </LineShareButton>
+                                <EmailShareButton url={shareUrl}>
+                                    <EmailIcon size={40} round />
+                                </EmailShareButton>
+                                <FacebookMessengerShareButton url={shareUrl} appId={`${FB_APP_ID}`}  >
+                                    <FacebookMessengerIcon size={40} round />
+                                </FacebookMessengerShareButton>
+                                <TwitterShareButton url={shareUrl} title={blog.title} >
+                                    <TwitterIcon size={40} round />
+                                </TwitterShareButton>
+                                <TelegramShareButton url={shareUrl} title={blog.title}  >
+                                    <TelegramIcon size={40} round />
+                                </TelegramShareButton>
+                                <LinkedinShareButton url={shareUrl}>
+                                    <LinkedinIcon size={40} round />
+                                </LinkedinShareButton>
+                                <PinterestShareButton url={shareUrl} media={`${DOMAIN}/images/seoblog.jpg`} >
+                                    <PinterestIcon size={40} round />
+                                </PinterestShareButton>
+                                <PinterestShareCount url={shareUrl} className="btn btn-light" />
                             </div>
                         </div>
                     </div>
