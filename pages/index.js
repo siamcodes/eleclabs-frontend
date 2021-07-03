@@ -99,7 +99,7 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return categories.map((c, i) => (
             <>
                 <Link href={`/categories/${c.slug}`} key={i}>
-                    <a className="btn btn-sm btn-secondary  mt-1">{c.name}</a>
+                    <a className="btn btn-sm btn-secondary mt-1">{c.name}</a>
                 </Link>{' '}
             </>
         ));
@@ -109,7 +109,7 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return tags.map((t, i) => (
             <>
                 <Link href={`/tags/${t.slug}`} key={i}>
-                    <a className="btn btn-sm btn-outline-secondary  mt-1">{t.name}</a>
+                    <a className="btn btn-sm btn-outline-secondary mt-1">{t.name}</a>
                 </Link> {' '}
             </>
         ));
@@ -135,7 +135,7 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                                 <div className="row row-cols-1 row-cols-md-3 g-2">
                                     {showAllBlogs()}
                                 </div>
-                                <div className="row row-cols-1 row-cols-md-3 g-2">
+                                <div className="row row-cols-1 row-cols-md-3 g-2 pt-2">
                                     {showLoadedBlogs()}
                                 </div>
                                 <div className="text-center pt-3 pb-3">{loadMoreButton()}</div>

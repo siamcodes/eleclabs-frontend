@@ -41,10 +41,7 @@ const Header = () => {
                                     <NavLink style={{ cursor: 'pointer' }}>Contact</NavLink>
                                 </Link>
                             </NavItem>
-
                             <Search />
-
-
                         </React.Fragment>
                     </Nav>
                     <Nav className="ms-auto" navbar>

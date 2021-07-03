@@ -30,6 +30,7 @@ const Card = ({ blog, router }) => {
             <div className="card">
                 <img
                     className="img img-fluid"
+                    style={{ maxHeight: '150px', width: 'auto', objectFit: 'cover' }}
                     src={`${API}/blog/photo/${blog.slug}`}
                     alt={blog.title}
                 />
