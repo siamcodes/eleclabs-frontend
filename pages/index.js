@@ -117,7 +117,7 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
     const showLoadedBlogs = () => {
         return loadedBlogs.map((blog, i) => (
-            <div className="col" >
+            <div className="col">
                 <Card key={i} blog={blog} />
             </div>
         ));
@@ -138,7 +138,9 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                                 <div className="row row-cols-1 row-cols-md-3 g-2 pt-2">
                                     {showLoadedBlogs()}
                                 </div>
-                                <div className="text-center pt-3 pb-3">{loadMoreButton()}</div>
+                                <div className="text-center pt-3 pb-3">
+                                    {loadMoreButton()}
+                                </div>
                             </div>
                             <div className="col-md-2">
                                 <div className="pb-3">

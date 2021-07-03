@@ -118,9 +118,9 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
     const showLoadedBlogs = () => {
         return loadedBlogs.map((blog, i) => (
-            <article key={i}>
-                <Card blog={blog} />
-            </article>
+            <div className="col">
+                <Card key={i} blog={blog} />
+            </div>
         ));
     };
 
@@ -135,7 +135,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                                 <div className="row row-cols-1 row-cols-md-3 g-2">
                                     {showAllBlogs()}
                                 </div>
-                                <div className="row row-cols-1 row-cols-md-3 g-2">
+                                <div className="row row-cols-1 row-cols-md-3 g-2 pt-2">
                                     {showLoadedBlogs()}
                                 </div>
                                 <div className="text-center pt-3 pb-3">
