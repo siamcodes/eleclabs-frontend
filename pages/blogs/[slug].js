@@ -135,7 +135,7 @@ const SingleBlog = ({ blog, query }) => {
 
                         <div className="container">
                             <div className="row">
-                                <div className="col imgs">
+                                <div className="col-md-9 imgs">
                                     {renderHTML(blog.body)}
                                 </div>
                                 <div className="col-md-3">
