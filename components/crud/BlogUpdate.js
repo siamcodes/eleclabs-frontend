@@ -222,12 +222,12 @@ const BlogUpdate = ({ router }) => {
     const updateBlogForm = () => {
         return (
             <form onSubmit={editBlog}>
-                <div className="form-group">
+                <div className="mb-3">
                     <label className="text-muted">Title</label>
                     <input type="text" className="form-control" value={title} onChange={handleChange('title')} />
                 </div>
 
-                <div className="form-group">
+                <div className="mb-3">
                     <ReactQuill
                         modules={QuillModules}
                         formats={QuillFormats}
@@ -236,9 +236,8 @@ const BlogUpdate = ({ router }) => {
                         onChange={handleBody}
                     />
                 </div>
-
                 <div>
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-lg btn-primary">
                         Update
                     </button>
                 </div>
@@ -256,9 +255,6 @@ const BlogUpdate = ({ router }) => {
                         {showSuccess()}
                         {showError()}
                     </div>
-                    {body && (
-                        <img src={`${API}/blog/photo/${router.query.slug}`} alt={title} style={{ width: '100%' }} />
-                    )}
                 </div>
 
                 <div className="col-md-4">
@@ -266,13 +262,21 @@ const BlogUpdate = ({ router }) => {
                         <div className="form-group pb-2">
                             <h5>Featured image</h5>
                             <hr />
-
-                            <small className="text-muted">Max size: 1mb</small>
-                            <br />
-                            <label className="btn btn-outline-info">
-                                Upload featured image
-                                <input onChange={handleChange('photo')} type="file" accept="image/*" hidden />
-                            </label>
+                            <div className="row">
+                                <div className="col">
+                                    <small className="text-muted">Max size: 1 Mb</small>
+                                    <br />
+                                    <label className="btn btn-outline-info">
+                                        Upload featured image
+                                        <input onChange={handleChange('photo')} type="file" accept="image/*" hidden />
+                                    </label>
+                                </div>
+                                <div className="col">
+                                    {body && (
+                                        <img src={`${API}/blog/photo/${router.query.slug}`} alt={title} style={{ width: '100%' }} />
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div>

@@ -89,10 +89,9 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
     const showAllBlogs = () => {
         return blogs.map((blog, i) => {
             return (
-                <article key={i}>
-                    <Card blog={blog} />
-                    <hr />
-                </article>
+                <div className="col" >
+                    <Card key={i} blog={blog} />
+                </div>
             );
         });
     };
@@ -101,7 +100,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return categories.map((c, i) => (
             <>
                 <Link href={`/categories/${c.slug}`} key={i}>
-                    <a className="btn btn-secondary btn-sm mt-1">{c.name}</a>
+                    <a className="btn btn-sm btn-secondary mt-1">{c.name}</a>
                 </Link>{' '}
             </>
         ));
@@ -111,7 +110,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return tags.map((t, i) => (
             <>
                 <Link href={`/tags/${t.slug}`} key={i}>
-                    <a className="btn btn-outline-secondary btn-sm mt-1">{t.name}</a>
+                    <a className="btn btn-sm btn-outline-secondary mt-1">{t.name}</a>
                 </Link> {' '}
             </>
         ));
@@ -132,17 +131,21 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                 <main>
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-8">
-                                <div className="container">
+                            <div className="col">
+                                <div className="row row-cols-1 row-cols-md-3 g-2">
                                     {showAllBlogs()}
                                 </div>
-                                <div className="container">{showLoadedBlogs()}</div>
-                                <div className="text-center pt-3 pb-3">{loadMoreButton()}</div>
+                                <div className="row row-cols-1 row-cols-md-3 g-2">
+                                    {showLoadedBlogs()}
+                                </div>
+                                <div className="text-center pt-3 pb-3">
+                                    {loadMoreButton()}
+                                </div>
                             </div>
-                            <div className="col-md-4">
-                                <div className="pb-3 text-center">
+                            <div className="col-md-2">
+                                <div className="pb-3">
                                     {showAllCategories()}
-                                    <br />
+                                    <hr />
                                     {showAllTags()}
                                 </div>
                                 <hr />
@@ -186,7 +189,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
 Blogs.getInitialProps = () => {
     let skip = 0;
-    let limit = 3;
+    let limit = 9;
     return listBlogsWithCategoriesAndTags(skip, limit).then(data => {
         // console.log('Data:', data)
         if (data.error) {

@@ -4,6 +4,7 @@ import Router from 'next/router';
 import { getCookie, isAuth } from '../../actions/auth';
 import { list, removeBlog } from '../../actions/blog';
 import moment from 'moment';
+import { API } from '../../config';
 
 const BlogRead = ({ username }) => {
     const [blogs, setBlogs] = useState([]);
@@ -64,15 +65,26 @@ const BlogRead = ({ username }) => {
     const showAllBlogs = () => {
         return blogs.map((blog, i) => {
             return (
-                <div key={i} className="pb-5">
-                    <h3>{blog.title}</h3>
-                    <p className="mark">
-                        Written by {blog.postedBy.name}  | Published on {moment(blog.updatedAt).fromNow()}
-                    </p>
-                    <button className="btn btn-sm btn-danger" onClick={() => deleteConfirm(blog.slug)}>
-                        Delete
-                    </button> {' '}
-                    {showUpdateButton(blog)}
+                <div key={i} className="col">
+                    <div className="card" >
+                        <img
+                            className="card-img-top"
+                            style={{ objectFit: 'cover' }}
+                            src={`${API}/blog/photo/${blog.slug}`}
+                            alt={blog.title}
+                        />
+                        <div className="card-body">
+                            <h3 className="card-title">{blog.title}</h3>
+                            <p className="card-text mark">
+                                <small>  Written by {blog.postedBy.name}  | Published on {moment(blog.updatedAt).fromNow()} </small>
+                            </p>
+                            <button className="btn btn-sm btn-danger" onClick={() => deleteConfirm(blog.slug)}>
+                                Delete
+                            </button> {' '}
+                            {showUpdateButton(blog)}
+                        </div>
+
+                    </div>
                 </div>
             );
         });
@@ -84,7 +96,9 @@ const BlogRead = ({ username }) => {
             <div className="row">
                 <div className="col-md-12">
                     {message && <div className="alert alert-warning">{message}</div>}
-                    {showAllBlogs()}
+                    <div className="row row-cols-1 row-cols-md-4 g-2">
+                        {showAllBlogs()}
+                    </div>
                 </div>
             </div>
         </React.Fragment>

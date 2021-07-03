@@ -8,7 +8,6 @@ import renderHTML from 'react-render-html';
 import moment from 'moment';
 import SmallCard from '../../components/blog/SmallCard';
 import DisqusThread from '../../components/DisqusThread';
-
 import {
     FacebookShareButton,
     FacebookShareCount,
@@ -31,9 +30,7 @@ import {
 } from "react-share";
 
 const SingleBlog = ({ blog, query }) => {
-
     const shareUrl = `${DOMAIN}/blogs/${query.slug}`; //
-    
     const [related, setRelated] = useState([]);
 
     const loadRelated = () => {
@@ -91,7 +88,7 @@ const SingleBlog = ({ blog, query }) => {
 
     const showRelatedBlog = () => {
         return related.map((blog, i) => (
-            <div className="col-md-4" key={i}>
+            <div className="col-md-3" key={i}>
                 <article>
                     <SmallCard blog={blog} />
                 </article>
@@ -116,35 +113,32 @@ const SingleBlog = ({ blog, query }) => {
             <Layout>
                 <main>
                     <article>
-                        <div className="container">
-                            <section>
-                                <div className="row" style={{ marginTop: '-30px' }}>
-                                    <img
-                                        src={`${API}/blog/photo/${blog.slug}`}
-                                        alt={blog.title}
-                                        className="img img-fluid featured-image"
-                                    />
-                                </div>
-                            </section>
-
-                            <section>
-                                <h2 className="display-2 pb-3 pt-3 text-center font-weight-bold">{blog.title}</h2>
-                                <small className="mt-2 mark ">
-                                    Written by{' '}
-                                    <Link href={`/profile/${blog.postedBy.username}`}>
-                                        <a>{blog.postedBy.name}</a>
-                                    </Link>{' '}
-                                   | Published {moment(blog.updatedAt).fromNow()}
-                                </small>
-                            </section>
-                        </div>
+                        <section>
+                            <div className="row" style={{ marginTop: '-50px' }}>
+                                <img
+                                    src={`${API}/blog/photo/${blog.slug}`}
+                                    alt={blog.title}
+                                    className="img img-fluid featured-image"
+                                />
+                            </div>
+                        </section>
+                        <section className="container">
+                            <h2 className="display-3 pb-3 pt-3 text-center font-weight-bold">{blog.title}</h2>
+                            <small className="mt-2 mark">
+                                Written by{' '}
+                                <Link href={`/profile/${blog.postedBy.username}`}>
+                                    <a>{blog.postedBy.name}</a>
+                                </Link>{' '}
+                                | Published {moment(blog.updatedAt).fromNow()}
+                            </small>
+                        </section>
 
                         <div className="container">
                             <div className="row">
-                                <div className="col-md-8">
+                                <div className="col imgs">
                                     {renderHTML(blog.body)}
                                 </div>
-                                <div className="col-md-4">
+                                <div className="col-md-3">
                                     {showBlogCategories(blog)}
                                     {showBlogTags(blog)}
                                     <hr />
@@ -180,14 +174,14 @@ const SingleBlog = ({ blog, query }) => {
                             </div>
                         </div>
 
-                        <div className="container">
-                            <h4 className="text-center pt-5 pb-5 h2">Related blogs</h4>
+                        <div className="container pt-5">
+                            <h2 className="display-3 pb-3 pt-3 text-center font-weight-bold">Related blogs</h2>
                             <hr />
                             {/* {JSON.stringify(related)} */}
                             <div className="row">{showRelatedBlog()}</div>
                         </div>
 
-                        <div className="container pt-5 pb-5">{showComments()}</div>
+                        <div className="container pt-5">{showComments()}</div>
                     </article>
                 </main>
             </Layout>

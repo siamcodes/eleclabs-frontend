@@ -1,3 +1,10 @@
+@media screen and (max-width: 1200px) and (min-width: 320px) {
+    .imgs img{
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 body {   
     font-family: 'serif', 'sans-serif', 'monospace' ; 
 } 

@@ -41,29 +41,33 @@ const Header = () => {
                                     <NavLink style={{ cursor: 'pointer' }}>Contact</NavLink>
                                 </Link>
                             </NavItem>
-                            <NavItem>
-                                <a href="/user/crud/blog" className="btn btn-primary text-light">Write a blog</a>
-                            </NavItem>
-                            {/* {JSON.stringify(isAuth())} */}
-                            {isAuth() && isAuth().role === 0 && (
-                                <NavItem>
-                                    <Link href="/user">
-                                        <NavLink style={{ cursor: 'pointer' }}>{`${isAuth().name}'s Dashboard`}</NavLink>
-                                    </Link>
-                                </NavItem>
-                            )}
 
-                            {isAuth() && isAuth().role === 1 && (
-                                <NavItem>
-                                    <Link href="/admin">
-                                        <NavLink style={{ cursor: 'pointer' }}>{`${isAuth().name}'s Dashboard`}</NavLink>
-                                    </Link>
-                                </NavItem>
-                            )}
+                            <Search />
+
+
                         </React.Fragment>
                     </Nav>
                     <Nav className="ms-auto" navbar>
-                        <Search />
+                        <NavItem>
+                            <a href="/user/crud/blog" className="btn btn-primary text-light">Write a blog</a>
+                        </NavItem>
+                        {/* {JSON.stringify(isAuth())} */}
+                        {isAuth() && isAuth().role === 0 && (
+                            <NavItem>
+                                <Link href="/user">
+                                    <NavLink style={{ cursor: 'pointer' }}>{`${isAuth().name}'s Dashboard`}</NavLink>
+                                </Link>
+                            </NavItem>
+                        )}
+
+                        {isAuth() && isAuth().role === 1 && (
+                            <NavItem>
+                                <Link href="/admin">
+                                    <NavLink style={{ cursor: 'pointer' }}>{`${isAuth().name}'s Dashboard`}</NavLink>
+                                </Link>
+                            </NavItem>
+                        )}
+
                         {!isAuth() && (
                             <React.Fragment>
                                 <NavItem>

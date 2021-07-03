@@ -3,7 +3,7 @@ import Head from "next/head";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'nprogress/nprogress.css';
 import 'react-quill/dist/quill.snow.css';
-import '../styles.css';
+import '../public/css/styles.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 function MyApp({ Component, pageProps }) {
