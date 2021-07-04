@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="icon" href="favicon.ico" />
+        <script data-ad-client="ca-pub-6218184931833362" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </Head>
       <Component {...pageProps} />
     </>

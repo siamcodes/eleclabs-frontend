@@ -64,7 +64,6 @@ const SingleBlog = ({ blog, query }) => {
             <meta property="og:image:secure_url" content={`${API}/blog/photo/${blog.slug}`} />
             <meta property="og:image:type" content="image/jpg" />
             <meta property="fb:app_id" content={`${FB_APP_ID}`} />
-            <script data-ad-client="ca-pub-8190308026925658" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Head>
     );
 
