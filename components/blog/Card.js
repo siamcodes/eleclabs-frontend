@@ -11,7 +11,7 @@ const Card = ({ blog, router }) => {
         blog.categories.map((c, i) => (
             <>
                 <Link key={i} href={`/categories/${c.slug}`}>
-                    <a className="btn btn-secondary btn-sm">{c.name}</a>
+                    <a className="btn btn-sm btn-secondary mt-1">{c.name}</a>
                 </Link> {' '}
             </>
         ));
@@ -20,7 +20,7 @@ const Card = ({ blog, router }) => {
         blog.tags.map((t, i) => (
             <>
                 <Link key={i} href={`/tags/${t.slug}`}>
-                    <a className="btn btn-outline-secondary btn-sm">{t.name}</a>
+                    <a className="btn btn-sm btn-outline-secondary mt-1">{t.name}</a>
                 </Link> {' '}
             </>
         ));
@@ -28,30 +28,34 @@ const Card = ({ blog, router }) => {
     return (
         <>
             <div className="card">
-                <img
-                    className="img img-fluid"
-                    style={{ maxHeight: '150px', width: 'auto', objectFit: 'cover' }}
-                    src={`${API}/blog/photo/${blog.slug}`}
-                    alt={blog.title}
-                />
+                <Link href={`/blogs/${blog.slug}`}>
+                    <img
+                        className="img img-fluid"
+                        style={{ maxHeight: '150px', width: 'auto', objectFit: 'cover' }}
+                        src={`${API}/blog/photo/${blog.slug}`}
+                        alt={blog.title}
+                    />
+                </Link>
                 <div className="card-body">
                     <h3 className="card-title"> <Link href={`/blogs/${blog.slug}`}><a>{blog.title}</a></Link></h3>
-                    <small className="mark">
+                    <small className="text-muted">
                         Written by{' '}
                         <Link href={`/profile/${blog.postedBy.username}`}>
                             <a>{blog.postedBy.name}</a>
                         </Link>{' '}
                         | Published {moment(blog.updatedAt).fromNow()}
                     </small>
-                    <div className="pt-2 pb-2">
+                    <div className="pb-1">
                         {showBlogCategories(blog)}
                         {showBlogTags(blog)}
                     </div>
                     <div className="card-text">
                         <div>{renderHTML(blog.excerpt)}</div>
-                        <Link href={`/blogs/${blog.slug}`}>
-                            <a className="btn btn-outline-info pt-2">Read more</a>
-                        </Link> {' '}
+                        <div className="text-center">
+                            <Link href={`/blogs/${blog.slug}`}>
+                                <a className="btn btn-outline-info pt-2">Read more</a>
+                            </Link> {' '}
+                        </div>
                     </div>
                 </div>
             </div>

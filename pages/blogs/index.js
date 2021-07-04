@@ -77,9 +77,11 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return (
             size > 0 &&
             size >= limit && (
-                <button onClick={loadMore} className="btn btn-outline-primary btn-lg">
-                    Load more
-                </button>
+                <div className="d-grid">
+                    <button onClick={loadMore} className="btn btn-lg btn-outline-primary fs-1 fw-bold">
+                        Load more
+                    </button>
+                </div>
             )
         );
     };
@@ -188,7 +190,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
 Blogs.getInitialProps = () => {
     let skip = 0;
-    let limit = 9;
+    let limit = 12;
     return listBlogsWithCategoriesAndTags(skip, limit).then(data => {
         // console.log('Data:', data)
         if (data.error) {

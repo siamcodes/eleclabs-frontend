@@ -77,9 +77,11 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return (
             size > 0 &&
             size >= limit && (
-                <button onClick={loadMore} className="btn btn-lg btn-outline-primary ">
-                    Load more
-                </button>
+                <div className="d-grid">
+                    <button onClick={loadMore} className="btn btn-lg btn-outline-primary fs-1 fw-bold">
+                        Load more
+                    </button>
+                </div>
             )
         );
     };
@@ -130,7 +132,7 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                 <main>
                     <div className="container">
                         <div className="row">
-                            <div className="col">
+                            <div className="col-md-10">
                                 <div className="row row-cols-1 row-cols-md-3 g-2">
                                     {showAllBlogs()}
                                 </div>
@@ -187,9 +189,9 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
 Index.getInitialProps = () => {
     let skip = 0;
-    let limit = 9;
+    let limit = 12;
     return listBlogsWithCategoriesAndTags(skip, limit).then(data => {
-        console.log('Data:', data)
+       // console.log('Data:', data)
         if (data.error) {
             console.log(data.error);
         } else {

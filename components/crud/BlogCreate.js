@@ -190,8 +190,8 @@ const CreateBlog = ({ router }) => {
                     />
                 </div>
 
-                <div className="mb-3">
-                    <button type="submit" className="btn btn-primary">
+                <div className="d-grid">
+                    <button type="submit" className="btn btn-lg btn-primary">
                         Publish
                     </button>
                 </div>
@@ -215,7 +215,7 @@ const CreateBlog = ({ router }) => {
                             <h5>Featured image</h5>
                             <hr />
                             <small className="text-muted">Max size: 1MB</small>{' '}
-                            <label className="btn btn-outline-info">
+                            <label className="btn btn-lg btn-outline-info">
                                 Upload featured image
                                 <input onChange={handleChange('photo')} type="file" accept="image/*" hidden />
                             </label>
@@ -229,7 +229,7 @@ const CreateBlog = ({ router }) => {
                     <div>
                         <h5>Tags</h5>
                         <hr />
-                        <ul style={{ maxHeight: '200px', overflowY: 'scroll' }}>{showTags()}</ul>
+                        <ul style={{ maxHeight: '300px', overflowY: 'scroll' }}>{showTags()}</ul>
                     </div>
                 </div>
             </div>

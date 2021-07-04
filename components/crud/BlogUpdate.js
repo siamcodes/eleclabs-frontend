@@ -236,7 +236,7 @@ const BlogUpdate = ({ router }) => {
                         onChange={handleBody}
                     />
                 </div>
-                <div>
+                <div className="d-grid">
                     <button type="submit" className="btn btn-lg btn-primary">
                         Update
                     </button>
@@ -266,7 +266,7 @@ const BlogUpdate = ({ router }) => {
                                 <div className="col">
                                     <small className="text-muted">Max size: 1 Mb</small>
                                     <br />
-                                    <label className="btn btn-outline-info">
+                                    <label className="btn btn-lg btn-outline-info">
                                         Upload featured image
                                         <input onChange={handleChange('photo')} type="file" accept="image/*" hidden />
                                     </label>
@@ -288,7 +288,7 @@ const BlogUpdate = ({ router }) => {
                     <div>
                         <h5>Tags</h5>
                         <hr />
-                        <ul style={{ maxHeight: '200px', overflowY: 'scroll' }}>{showTags()}</ul>
+                        <ul style={{ maxHeight: '350px', overflowY: 'scroll' }}>{showTags()}</ul>
                     </div>
                 </div>
             </div>

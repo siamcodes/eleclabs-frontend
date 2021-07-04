@@ -74,14 +74,16 @@ const BlogRead = ({ username }) => {
                             alt={blog.title}
                         />
                         <div className="card-body">
-                            <h3 className="card-title">{blog.title}</h3>
-                            <p className="card-text mark">
-                                <small>  Written by {blog.postedBy.name}  | Published on {moment(blog.updatedAt).fromNow()} </small>
+                            <h5 className="card-title">{blog.title}</h5>
+                            <p className="card-text">
+                                <small class="text-muted">  Written by {blog.postedBy.name}  | Published on {moment(blog.updatedAt).fromNow()} </small>
                             </p>
-                            <button className="btn btn-sm btn-danger" onClick={() => deleteConfirm(blog.slug)}>
-                                Delete
-                            </button> {' '}
-                            {showUpdateButton(blog)}
+                            <div className="text-center">
+                                <button className="btn btn-sm btn-danger" onClick={() => deleteConfirm(blog.slug)}>
+                                    Delete
+                                </button> {' '}
+                                {showUpdateButton(blog)}
+                            </div>
                         </div>
 
                     </div>
@@ -96,7 +98,7 @@ const BlogRead = ({ username }) => {
             <div className="row">
                 <div className="col-md-12">
                     {message && <div className="alert alert-warning">{message}</div>}
-                    <div className="row row-cols-1 row-cols-md-4 g-2">
+                    <div className="row row-cols-1 row-cols-md-4 g-1">
                         {showAllBlogs()}
                     </div>
                 </div>
