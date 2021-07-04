@@ -48,16 +48,16 @@ const Search = () => {
     const searchForm = () => (
         <form onSubmit={searchSubmit} >
             <div className="input-group">
-                <input type="search" className="form-control me-2" placeholder="Search" onChange={handleChange} />
-                <button className="btn btn-block btn-outline-primary" type="submit"> Search  </button>
+                <input type="search" className="form-control me-1" placeholder="Search" onChange={handleChange} />
+                <button className="btn btn-outline-secondary" type="submit"> Search  </button>
             </div>
         </form>
     );
 
     return (
-        <div>
+        <div style={{ zIndex:4000 }}>
             <div>{searchForm()}</div>
-            {searched && <div style={{ marginTop: '-50px', marginBottom: '-80px' }}>{searchedBlogs(results)}</div>}
+            {searched && <div style={{position: 'fixed', padding:'0px'}}>{searchedBlogs(results)}</div>}
         </div>
     );
 };

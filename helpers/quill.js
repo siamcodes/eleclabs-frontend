@@ -3,10 +3,12 @@ export const QuillModules = {
         [{ header: '1' }, { header: '2' }, { header: [3, 4, 5, 6] }, { font: [] }],
         [{ size: [] }],
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-        [{ list: 'ordered' }, { list: 'bullet' }],
+        [{ 'color': [] }, { 'background': [] }], 
+        [{ 'align': [] }],
+        [{ list: 'ordered' }, { list: 'bullet' }, { indent: "-1" }, { indent: "+1" }],
         ['link', 'image', 'video'],
-        ['clean'],
-        ['code-block']
+        ['code-block'],
+        ['clean']
     ]
 };
 
@@ -19,8 +21,12 @@ export const QuillFormats = [
     'underline',
     'strike',
     'blockquote',
+    'color',
+    'background',
+    'align',
     'list',
     'bullet',
+    'indent',
     'link',
     'image',
     'video',

@@ -7,7 +7,8 @@ import { getCookie, isAuth } from '../../actions/auth';
 import { getCategories } from '../../actions/category';
 import { getTags } from '../../actions/tag';
 import { createBlog } from '../../actions/blog';
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+//const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+const ReactQuill = require('react-quill');
 //import '../../node_modules/react-quill/dist/quill.snow.css';
 import { QuillModules, QuillFormats } from '../../helpers/quill';
 
@@ -214,7 +215,7 @@ const CreateBlog = ({ router }) => {
                         <div className="form-group pb-2">
                             <h5>Featured image</h5>
                             <hr />
-                            <small className="text-muted">Max size: 1MB</small>{' '}
+                            <small className="text-muted">Max size: 1Mb</small>{' '}
                             <label className="btn btn-lg btn-outline-info">
                                 Upload featured image
                                 <input onChange={handleChange('photo')} type="file" accept="image/*" hidden />

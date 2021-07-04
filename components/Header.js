@@ -21,12 +21,18 @@ const Header = () => {
     return (
         <React.Fragment>
             <Navbar color="light" light expand="md" className="container-fluid" >
+
                 <Link href="/">
-                    <NavbarBrand style={{ cursor: 'pointer' }} >
-                        <img src={`${DOMAIN}/images/logo.png`} height="24" class="d-inline-block align-text-top" />
-                        {APP_NAME}
-                    </NavbarBrand>
+                    <a className="typewriter">
+                        <div className="pt-1">
+                            <NavbarBrand style={{ cursor: 'pointer' }}>
+                                <img src={`${DOMAIN}/images/logo.png`} height="24" class="d-inline-block align-text-top" />
+                                {APP_NAME}
+                            </NavbarBrand>
+                        </div>
+                    </a>
                 </Link>
+
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="me-auto" navbar>
@@ -46,7 +52,7 @@ const Header = () => {
                     </Nav>
                     <Nav className="ms-auto" navbar>
                         <NavItem>
-                            <a href="/user/crud/blog" className="btn btn-primary text-light">Write a blog</a>
+                            <a href="/user/crud/blog" className="btn btn-outline-info mt-1">Write a blog</a>
                         </NavItem>
                         {/* {JSON.stringify(isAuth())} */}
                         {isAuth() && isAuth().role === 0 && (
@@ -87,17 +93,9 @@ const Header = () => {
                                 </NavLink>
                             </NavItem>
                         )}
-
                     </Nav>
                 </Collapse>
             </Navbar>
-            {/*  <div className="container">
-                <div className="row">
-                    <div className="col-md-8 offset-md-2">
-                        <Search />
-                    </div>
-                </div>
-            </div> */}
         </React.Fragment>
     );
 };

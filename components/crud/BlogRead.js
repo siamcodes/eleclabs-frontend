@@ -74,7 +74,11 @@ const BlogRead = ({ username }) => {
                             alt={blog.title}
                         />
                         <div className="card-body">
-                            <h5 className="card-title">{blog.title}</h5>
+                            <h5 className="card-title">
+                                <Link href={`/blogs/${blog.slug}`}><a>
+                                    {blog.title}
+                                </a></Link>
+                            </h5>
                             <p className="card-text">
                                 <small class="text-muted">  Written by {blog.postedBy.name}  | Published on {moment(blog.updatedAt).fromNow()} </small>
                             </p>

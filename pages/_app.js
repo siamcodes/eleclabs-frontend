@@ -3,6 +3,8 @@ import Head from "next/head";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'nprogress/nprogress.css';
 import 'react-quill/dist/quill.snow.css';
+import 'react-quill/dist/quill.bubble.css';
+import 'react-quill/dist/quill.core.css';
 import '../public/css/styles.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
