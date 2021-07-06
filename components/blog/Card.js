@@ -36,8 +36,15 @@ const Card = ({ blog, router }) => {
                         alt={blog.title}
                     />
                 </Link>
+
                 <div className="card-body">
-                    <h3 className="card-title"> <Link href={`/blogs/${blog.slug}`}><a>{blog.title}</a></Link></h3>
+                    <h2 className="card-title text-shadow">
+                        <Link href={`/blogs/${blog.slug}`}>{blog.title}</Link>
+                    </h2>
+                    <div className="pt-2">
+                        {showBlogCategories(blog)}
+                        {showBlogTags(blog)}
+                    </div>
                     <small className="text-muted">
                         Written by{' '}
                         <Link href={`/profile/${blog.postedBy.username}`}>
@@ -45,15 +52,11 @@ const Card = ({ blog, router }) => {
                         </Link>{' '}
                         | Published {moment(blog.updatedAt).fromNow()}
                     </small>
-                    <div className="pb-1">
-                        {showBlogCategories(blog)}
-                        {showBlogTags(blog)}
-                    </div>
-                    <div className="card-text">
+                    <div className="card-text pt-1">
                         <div>{renderHTML(blog.excerpt)}</div>
                         <div className="text-center">
                             <Link href={`/blogs/${blog.slug}`}>
-                                <a className="btn btn-outline-info pt-2">Read more</a>
+                                <a className="btn btn-outline-info pt-1">Read more</a>
                             </Link> {' '}
                         </div>
                     </div>

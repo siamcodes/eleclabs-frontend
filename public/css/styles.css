@@ -47,7 +47,7 @@ body {
  * card 
  */
 
- .flip {
+.flip {
     position: relative;
 }
 .flip > .front,

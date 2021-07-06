@@ -122,7 +122,9 @@ const SingleBlog = ({ blog, query }) => {
                             </div>
                         </section>
                         <section className="container">
-                            <h2 className="display-3 pb-3 pt-3 text-center font-weight-bold">{blog.title}</h2>
+                            <h2 className="display-3 pb-2 pt-2 text-center font-weight-bold text-shadow">
+                                {blog.title}
+                            </h2>
                             <small className="mt-2 mark">
                                 Written by{' '}
                                 <Link href={`/profile/${blog.postedBy.username}`}>
@@ -174,7 +176,7 @@ const SingleBlog = ({ blog, query }) => {
                         </div>
 
                         <div className="container pt-5">
-                            <h2 className="display-3 pb-3 pt-3 text-center font-weight-bold">Related blogs</h2>
+                            <h2 className="display-3 pb-3 pt-3 text-center font-weight-bold text-shadow">Related blogs</h2>
                             <hr />
                             {/* {JSON.stringify(related)} */}
                             <div className="row">{showRelatedBlog()}</div>
