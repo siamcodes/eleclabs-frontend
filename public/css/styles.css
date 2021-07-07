@@ -3,6 +3,10 @@
         max-width: 100%;
         height: auto;
     }
+    .ql-video{
+        width: 100%;
+        height: auto;
+    }
 }
 
 body {   
@@ -18,10 +22,22 @@ body {
     min-height: 300px;
 }
 
+.ql-video{
+    width: 80%;  
+    height: 60%;
+}
+
 .featured-image {
     width: 100%;
     max-height: 350px;
     object-fit: cover;
+}
+
+pre{
+    background-color: #e6e6e6;
+    padding: 10px ;
+    font-size: 1.1em;
+    border-radius: 10px;
 }
 
 .btn-circle.btn-xl {
