@@ -31,7 +31,7 @@ const Card = ({ blog, router }) => {
                 <Link href={`/blogs/${blog.slug}`}>
                     <img
                         className="img img-fluid"
-                        style={{ maxHeight: '150px', width: 'auto', objectFit: 'cover' }}
+                        style={{ width: 'auto', objectFit: 'cover' }}
                         src={`${API}/blog/photo/${blog.slug}`}
                         alt={blog.title}
                     />
