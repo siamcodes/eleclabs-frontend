@@ -49,6 +49,7 @@ const SingleBlog = ({ blog, query }) => {
 
     const head = () => (
         <Head>
+            <script data-ad-client="ca-pub-3283607139562325" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <title>
                 {blog.title} | {APP_NAME}
             </title>
