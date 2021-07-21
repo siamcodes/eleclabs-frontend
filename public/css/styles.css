@@ -1,18 +1,28 @@
-@media screen and (max-width: 1360px) and (min-width: 320px) {
-    .imgs img{
-        max-width: 100%;
-        height: auto;
-    }
-    .ql-video{
-        width: 100%;
-        height: auto;
-    }
-}
-
 body {   
     font-family: 'serif', 'sans-serif', 'monospace' ; 
     font-size: 1.1em;
 } 
+
+@media screen and (min-width: 320px) and (max-width: 576) and (max-width: 768) and (max-width: 992) and (max-width: 1200px) and (max-width: 1400px)  {
+    .imgs img{
+        max-width: 100%;
+        height: auto;
+    }    
+    .ql-video{
+        width: 100%;
+        height: 270px;
+    }
+}
+
+.imgs img{
+    max-width: 100%;
+    max-height: 400px; 
+}
+
+.ql-video{
+    width: 480px;
+    height: 270px;
+}
 
 #nprogress .bar {
     height: 4px !important;
@@ -20,11 +30,6 @@ body {
 
 .ql-editor {
     min-height: 300px;
-}
-
-.ql-video{
-    width: 480px; 
-    height: 320px; 
 }
 
 .featured-image {
